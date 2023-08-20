@@ -19,7 +19,7 @@
 %%   \begin{otherlanguage}{italian}   ... \end{otherlanguage}
 %%
 %% These macros specify information about the presentation
-\title{Personaggi e Statistiche in Fate Grand Order} %% that will be typeset on the
+\title{Personaggi in Fate/Grand Order} %% that will be typeset on the
 %\subtitle{Presentation Subtitle} %% title page.
 \author{Lucchi Manuele, Tricella Davide}
 
@@ -33,6 +33,7 @@
 \usepackage{url}       % `\url`s
 \usepackage{listings}  % Code listings
 \usepackage{graphicx}
+\usepackage{varwidth}
 
 \frenchspacing
 \begin{document}
@@ -44,23 +45,27 @@
 
   % Servant
   \begin{frame}{Introduzione}
+    \framesubtitle{Servant}
+    \begin{varwidth}{\textwidth}
+      Personaggio giocabile\\
 
-    \begin{block}{Servant}
-      Azienda che produce hardware e software biomedicale.
-    \end{block}
-
-    \begin{figure}
-      \centering
-      \hspace{-1cm}
-      \includegraphics[scale=0.325]{./images/growth.png}
-    \end{figure}
-
+    \end{varwidth}
+    \hfil
+    \begin{varwidth}{\textwidth}
+      \hspace{2.5cm}
+      \includegraphics[height=0.75\textheight]{./images/servant.png}
+    \end{varwidth}
   \end{frame}
 
-  \begin{frame}{Dataset}
-
-    % COLONNE
-
+  \begin{frame}{Caratteristiche}
+    \begin{itemize}
+      \item Name (string)
+      \item Class (string)
+      \item Rarity (int 0-5)
+      \item Gender (string)
+      \item Traits (string)
+      \item Illustrator (string)
+    \end{itemize}
   \end{frame}
 
   \begin{frame}{Classi}
@@ -71,14 +76,14 @@
       \item Assassin
       \item Rider
       \item Caster
-      \item Extra
+      \item Extra (Multiple classi)
     \end{itemize}
   \end{frame}
 
   \begin{frame}{Classi}
     \begin{figure}
       \centering
-      \includegraphics[scale=0.5]{./images/frequency_by_class.png}
+      \includegraphics[scale=0.55]{./images/frequency_by_class.png}
     \end{figure}
   \end{frame}
 
@@ -94,134 +99,79 @@
   \begin{frame}{Attributi}
     \begin{figure}
       \centering
-      \includegraphics[scale=0.5]{./images/frequency_by_attribute.png}
+      \includegraphics[scale=0.55]{./images/frequency_by_attribute.png}
     \end{figure}
   \end{frame}
 
   \begin{frame}{Rarità}
-    \framesubtitle{IEC 62304}
-
-    L'azienda segue lo standard IEC 62304 Classe C
-
-    \begin{block}{IEC 62304}
-      Lo standard IEC 62304 definisce le fasi di sviluppo che un'azienda deve seguire affinchè il suo software sia considerabile di qualità
-    \end{block}
-
+    \framesubtitle{Da 0 a 5 stelle}
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.55]{./images/frequency_by_rarity.png}
+    \end{figure}
   \end{frame}
 
   \begin{frame}{Rarità}
-    \framesubtitle{Classi dello standard IEC 62304}
-
-    \begin{table}[!b]
-      {\carlitoTLF % Use monospaced lining figures
-        \begin{tabularx}{\textwidth}{Xrrr}
-          \textbf{Fase}                                & \textbf{Class A} & \textbf{Class B} & \textbf{Class C} \\
-          \toprule
-          Software development planning                & x                & x                & x                \\
-          Software requirements analysis               & x                & x                & x                \\
-          Software architectural design                &                  & x                & x                \\
-          Software detailed design                     &                  &                  & x                \\
-          Software unit implementation                 & x                & x                & x                \\
-          Software unit verification                   &                  & x                & x                \\
-          Software integration and integration testing &                  & x                & x                \\
-          Software system testing                      & x                & x                & x                \\
-          Software release                             & x                & x                & x                \\
-          \bottomrule
-        \end{tabularx}}
-    \end{table}
-
+    \framesubtitle{Uscite nel tempo}
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.55]{./images/rarity_per_year_bar.png}
+    \end{figure}
   \end{frame}
 
   \begin{frame}{Statistiche}
-    \framesubtitle{Statistiche legate alla rarità}
-
-    Le caratteristiche del modulo:
-    \begin{itemize}
-      \item Implementato in C\# compatibile con .NET 4.7.2
-      \item Task non bloccanti per il thread principale
-      \item Astrazione rispetto ai software che lo utilizzano
-      \item API esposte simili al sistema precedente
-      \item API uniformi per i tipi di dati supportati
-    \end{itemize}
-  \end{frame}
-
-  \begin{frame}{Illustratori}
-    \framesubtitle{Strumenti essenziali}
-    \begin{itemize}
-      \item C\#
-      \item Entity Framework Core
-      \item SQL Server
-      \item SQLite
-    \end{itemize}
-  \end{frame}
-
-  \begin{frame}{Strumenti}
-    \framesubtitle{Altri strumenti importanti}
-    \begin{itemize}
-      \item Librerie utilizzate durante lo sviluppo (Newtonsoft.Json, Microsoft.Extensions.*)
-      \item Principi di sviluppo software (Clean Architecture, Inversion of Control, Model View ViewModel)
-      \item IDE e Text Editor (SQL Server Management Studio, Visual Studio)
-      \item Testing e CI/CD (xUnit, IBM Rational)
-    \end{itemize}
-  \end{frame}
-
-  \begin{frame}{Struttura del progetto}
+    \framesubtitle{Statistiche di attacco legate alla rarità}
     \begin{figure}
       \centering
-      \hspace{-1cm}
-      \includegraphics[scale=0.325]{./images/growth.png}
+      \includegraphics[scale=0.55]{./images/class_and_stats_atk.png}
     \end{figure}
   \end{frame}
 
-  \begin{frame}{Policy}
-    \framesubtitle{Definizione ed utilizzo}
-    \begin{block}{Definizione}
-      Una \textbf{policy} è un comportamento che deve assumere il modulo nei confronti di determinati dati.
-    \end{block}
-    \begin{itemize}
-      \item Definite attraverso programma apposito
-      \item Utilizzate per definire i valori predefiniti
-      \item Utilizzate per definire la mutabilità dei dati
-      \item Utilizzare per definire le logiche di sincronizzazione
-    \end{itemize}
-
+  \begin{frame}{Statistiche}
+    \framesubtitle{Statistiche di punti vita legate alla rarità}
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.55]{./images/class_and_stats_hp.png}
+    \end{figure}
   \end{frame}
 
-  \begin{frame}{Sincronizzazione}
-    \framesubtitle{Logiche di sincronizzazione}
-    3 casi possibili durante la sincronizzazione:
-    \begin{itemize}
-      \item Valore remoto aggiornato e valore locale immutato
-      \item Valore remoto immutato e valore locale aggiornato
-      \item Entrambi i valori aggiornati
-    \end{itemize}
-
-    \begin{block}{Policy predefinita}
-      La policy predefinita in caso di conflitto consiste nello scegliere il valore aggiornato più recentemente.\\
-      Avviene invece una fusione in caso si tratti di liste.
-    \end{block}
-
+  \begin{frame}{Statistiche}
+    \framesubtitle{Crescita delle statistiche all'avanzare del livello}
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.55]{./images/growth.png}
+    \end{figure}
   \end{frame}
 
-  \begin{frame}{Integrazione}
-    \begin{itemize}
-      \item Integrazione avviene in fasi separate
-      \item Focus sui "montaggi"
-      \item Modifiche a modelli di dati già esistenti
-    \end{itemize}
+  \begin{frame}{Statistiche}
+    \framesubtitle{Statistiche di classi a confronto}
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.55]{./images/caster_vs_avenger.png}
+    \end{figure}
   \end{frame}
 
-  \begin{frame}{Conclusioni}
-    \textbf{Stato del progetto alla fine del tirocinio}
-    \begin{itemize}
-      \item Modulo completato
-      \item Integrazione parziale perchè...
-    \end{itemize}
-    \textbf{Prospettive future}
-    \begin{itemize}
-      \item Supporto all'archiviazione su cloud
-      \item Upgrade all'ultima versione di .NET
-    \end{itemize}
+  \begin{frame}{Illustratori}
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.55]{./images/illustrators.png}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Illustratori}
+    \framesubtitle{Illustrazioni e Trait}
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.55]{./images/saberface.png}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Illustratori}
+    \framesubtitle{Illustrazioni e Classi}
+    \begin{figure}
+      \centering
+      \includegraphics[scale=0.55]{./images/wadarco.png}
+    \end{figure}
   \end{frame}
 
   \begin{frame}{Conclusioni}
